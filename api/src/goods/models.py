@@ -14,6 +14,6 @@ class Goods(Base):
     detail: Mapped[str] = mapped_column(Text, nullable=True)
     price: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
     stock: Mapped[int] = mapped_column(Integer, nullable=False, default=0)
-    order_items: Mapped[list["OrderItem"]] = relationship( # noqa: F821
+    order_items: Mapped[list["OrderItem"]] = relationship( 
         "OrderItem", back_populates="goods"
     )

@@ -10,6 +10,19 @@ class OrderRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
 
+    async def create(self, order: OrderInfo) -> OrderInfo:
+        self.session.add(order)
+        await self.session.commit()
+        # Reload order with items to ensure all fields (including server defaults) are present
+        # and items are eagerly loaded for the schema
+        query = (
+            select(OrderInfo)
+            .where(OrderInfo.id == order.id)
+            .options(selectinload(OrderInfo.items))
+        )
+        result = await self.session.execute(query)
+        return result.scalar_one()
+
     async def get_by_id(self, order_id: int) -> OrderInfo:
         query: Select[tuple[OrderInfo]] = (
             select(OrderInfo)

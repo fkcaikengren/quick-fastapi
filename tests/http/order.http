@@ -1,0 +1,23 @@
+
+### Create Order
+POST {{baseUrl}}/orders/
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "delivery_addr_id": 1,
+  "items": [
+    {
+      "goods_id": 1,
+      "count": 1
+    }
+  ]
+}
+
+### Get User Orders
+GET {{baseUrl}}/orders/
+Authorization: Bearer {{token}}
+
+### Get Specific Order
+GET {{baseUrl}}/orders/1
+Authorization: Bearer {{token}}

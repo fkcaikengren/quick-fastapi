@@ -12,7 +12,6 @@ class Settings(BaseSettings):
     JWT_SECRET: str  # Change in production
     JWT_ALGORITHM: str = "HS256"
     JWT_EXPIRATION: int = 30  # minutes
-    UVICORN_PORT: int = 8000
 
     model_config = SettingsConfigDict(
         env_file=".env",

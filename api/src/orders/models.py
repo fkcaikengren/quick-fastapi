@@ -5,6 +5,7 @@ from sqlalchemy.sql import func
 from api.core.database import Base
 
 
+
 class OrderInfo(Base):
     __tablename__ = "order_info"
 
@@ -40,5 +41,5 @@ class OrderItem(Base):
     item_amount: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
 
     order_info: Mapped["OrderInfo"] = relationship(back_populates="items")
-    goods: Mapped["Goods"] = relationship("Goods", back_populates="order_items") # noqa: F821
+    goods: Mapped["Goods"] = relationship("Goods", back_populates="order_items") 
 

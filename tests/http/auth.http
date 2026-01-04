@@ -1,0 +1,18 @@
+### Register
+@POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "gavin@qq.com",
+  "password": "123456"
+}
+
+### Login
+POST {{baseUrl}}/auth/login
+Content-Type: application/x-www-form-urlencoded
+
+username=gavin@qq.com&password=123456
+
+### Get Current User
+GET {{baseUrl}}/auth/me
+Authorization: Bearer {{token}}

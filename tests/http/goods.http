@@ -1,0 +1,13 @@
+
+
+POST {{baseUrl}}/goods
+Content-Type: application/json
+
+{
+  "name": "iPhone 16",
+  "title": "Apple iPhone 16 256G",
+  "img": "https://example.com/iphone16.png",
+  "detail": "最新款 iPhone",
+  "price": 8999.99,
+  "stock": 100
+}
